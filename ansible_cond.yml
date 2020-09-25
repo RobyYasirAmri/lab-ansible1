@@ -1,0 +1,15 @@
+---
+- name: Using conditionals
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Run for cisco only
+      debug:
+        msg: "Router name is {{ hostname }}"
+      when: "'cisco' in group_names"
+
+    - name: Run for Only Juniper
+      debug:
+        msg: "{{ hostname }} is running {{ os }}"
+      when: 
+        - inventory_hostname == 'sw-manage2-juniper'

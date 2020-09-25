@@ -1,0 +1,14 @@
+[juniper]
+sw-manage2-juniper ansible_host=10.10.68.11
+
+[cisco]
+sw-manage1-cisco ansible_host=10.10.68.10
+
+[juniper:vars]
+#ansible_connection=netconf
+ansible_connection= network_cli
+ansible_network_os=junos
+ansible_python_interpreter=/usr/bin/python3
+
+#[juniper:vars]
+#ntp_server = 10.10.1.1
